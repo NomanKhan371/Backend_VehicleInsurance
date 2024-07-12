@@ -1,7 +1,9 @@
 // db.js
+// import * as dotenv from 'dotenv';
+// dotenv.config();
 
 const mongoose = require('mongoose');
-MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/Nomandb'
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/Nomandb'
 
 mongoose
     .connect(MONGO_URI, 
