@@ -1,5 +1,5 @@
 // db.js
-// import * as dotenv from 'dotenv';
+// import dotenv from 'dotenv';
 // dotenv.config();
 
 const mongoose = require('mongoose');
