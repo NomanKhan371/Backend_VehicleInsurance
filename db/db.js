@@ -110,7 +110,16 @@ async function getUserClaims(email) {
     }
 }
 
-module.exports = { find, create, getPolicies, createPolicy,createClaim, getUserClaims };
+async function getUserProfile(email) {
+    try {
+        return await Auth.findOne({ email }).exec();
+    } catch (error) {
+        console.error('Error finding user by email:', error);
+        throw error;
+    }
+}
+
+module.exports = { find, create, getPolicies, createPolicy,createClaim, getUserClaims, getUserProfile };
 
 
 

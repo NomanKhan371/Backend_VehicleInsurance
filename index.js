@@ -82,4 +82,21 @@ app.get("/claims", async (req, res) => {
     }
 });
 
+
+// Endpoint to fetch user profile by email
+app.get("/userProfile", async (req, res) => {
+    const email = req.query.email;
+    try {
+        const user = await db.getUserProfile(email);
+        if (user) {
+            res.json(user);
+        } else {
+            res.status(404).json({ message: 'User not found' });
+        }
+    } catch (error) {
+        console.error('Error fetching user profile:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+});
+
 app.listen(3000, '0.0.0.0', () => console.log('App listening on port 3000!'));
